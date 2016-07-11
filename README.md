@@ -17,12 +17,36 @@ Add the following to your `composer.json` file.
 
 ```json
 {
-    "minimum-stability" : "dev",
+    "name": "sendgrid/smtpapi",
+    "description": "Build SendGrid X-SMTPAPI headers in PHP.",
+    "version": "0.5.0",
+    "homepage": "http://github.com/sendgrid/smtpapi-php",
+    "license": "MIT",
+    "keywords": ["SendGrid", "sendgrid", "email", "send", "grid", "smtpapi", "smtp", "api", "xsmtp", "X-SMTP"],
     "require": {
-        "sendgrid/smtpapi": "~0.5"
+        "php": ">=5.3",
+        "swiftmailer/swiftmailer": "^5.4",
+        "sendgrid/sendgrid": "^5.0",
+        "vlucas/phpdotenv": "^2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "replace": {
+        "sendgrid/smtpapi-php": "*"
+    },
+    "type": "library",
+    "autoload": {
+        "psr-0": {"Smtpapi": "lib/"}
     }
 }
+
 ```
+
+```bash
+composer install
+```
+
 
 Then at the top of your script require the autoloader:
 
@@ -30,56 +54,10 @@ Then at the top of your script require the autoloader:
 require 'vendor/autoload.php';
 ```
 
-#### Alternative: Install from zip
+For Demo in folder examples/index.php
 
-If you are not using Composer, simply download and install the **[latest packaged release of the library as a zip](https://sendgrid-open-source.s3.amazonaws.com/smtpapi-php/smtpapi-php.zip)**.
 
-Then require the library from package:
 
-```php
-require('path/to/smtpapi-php/smtpapi-php.php');
-```
-
-Previous versions of the library can be found in the [version index](https://sendgrid-open-source.s3.amazonaws.com/index.html).
-
-## Dependencies
-
-- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=smtpapi-php))
-
-# Quick Start
-
-```php
-$header = new Smtpapi\Header();
-$header->addTo('test1@example.com');
-$header->addTo('test2@example.com');
-print $header->jsonString();
-```
-
-# Usage
-
-- [SendGrid Docs](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
-- [Example Code](https://github.com/sendgrid/smtpapi-php/tree/master/examples)
-
-## Roadmap
-
-If you are intersted in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/smtpapi-php/milestones). We would love to hear your feedback.
-
-## How to Contribute
-
-We encourage contribution to our projects, please see our [CONTRIBUTING](https://github.com/sendgrid/smtpapi-php/blob/master/CONTRIBUTING.md) guide for details.
-
-Quick links:
-
-- [Feature Request](https://github.com/sendgrid/smtpapi-php/blob/master/CONTRIBUTING.md#feature_request)
-- [Bug Reports](https://github.com/sendgrid/smtpapi-php/blob/master/CONTRIBUTING.md#submit_a_bug_report)
-- [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/smtpapi-php/blob/master/CONTRIBUTING.md#cla)
-- [Improvements to the Codebase](https://github.com/sendgrid/smtpapi-php/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
-
-# About
-
-smtpapi-php is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
-
-smtpapi-php is maintained and funded by SendGrid, Inc. The names and logos for smtpapi-php are trademarks of SendGrid, Inc.
 
 ![SendGrid Logo]
 (https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
