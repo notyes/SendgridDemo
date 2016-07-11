@@ -95,6 +95,20 @@ die();
 /*------------  End of Section comment block  ------------*/
 
 
+/**
+ *
+ * Code for get list name group
+ *
+ */
+
+$response = $sg->client->contactdb()->lists()->get();
+echo $response->statusCode();
+echo '<pre>';
+print_r( json_decode($response->body()) );
+echo '</pre>';
+die();
+
+/*------------  End of Section comment block  ------------*/
 
 
 

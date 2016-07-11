@@ -57,6 +57,7 @@ try {
 } catch(\Swift_TransportException $e) {
     print_r('Bad username / password');
 }
+die();
 
 /*------------  End of Section comment block  ------------*/
 
@@ -98,7 +99,20 @@ die();
 
 
 
+/**
+ *
+ * Code for get list name group
+ *
+ */
 
+$response = $sg->client->contactdb()->lists()->get();
+echo $response->statusCode();
+echo '<pre>';
+print_r( json_decode($response->body()) );
+echo '</pre>';
+die();
+
+/*------------  End of Section comment block  ------------*/
 
 
 
